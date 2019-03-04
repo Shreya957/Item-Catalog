@@ -1,0 +1,82 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+
+.header {
+  left: 0;
+  top: 0;
+  margin: -10px;
+  padding: 2px 50px 2px;
+  border: 0px solid #4CAF50;
+  background-color: lightgreen;
+}
+
+.sidenav {
+  height: 100%;
+  width: 170px;
+  position: fixed;
+  z-index: 1;
+  top: 70px;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 170px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+.main a{
+padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+
+<body>
+<div class="header">
+<h2>THE CATALOG APP</h2>
+</div>
+<div class="sidenav">
+<h style="color: yellow;font-size: 18px;margin-top: 1px;margin-bottom: 1px">CATEGORIES</h>
+{% for i in categories %}
+<a href="/catalog/{{i.id}}/ItemsList">{{i.name}}</a>
+{% endfor %}
+</div>
+<div class="main">
+<a style="font-weight: bold;margin-top: 1px;margin-bottom: 1px" href="/catalog/new"> <u>Add Items</u> <a>
+{% for i in items %}
+<a href="/catalog/{{i.id}}/ItemDetails">{{i.name}}</a>
+{% endfor %}
+</div>
+</body>
+
+</html>
